@@ -42,7 +42,6 @@ export default {
     }
 
   .vote_form {
-    margin: 5rem 0;
     display: flex;
     justify-content: center;
   }

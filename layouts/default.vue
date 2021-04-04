@@ -91,6 +91,7 @@ html {
   display: flex;
   justify-content: center;
   margin: 0 3rem;
+  padding: 5rem 0;
   min-height: 100vh;
 }
 </style>
