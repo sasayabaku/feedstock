@@ -1,13 +1,16 @@
 export const state = () => ({
     votes:[],
     showing_reply:[],
+    questions: [],
     current_reply: null,
-    current_meeting: null
+    current_meeting: null,
+    userID: "a102a34"
 })
 
 export const mutations = {
     setEnpty(state) {
-        state.votes = []
+        state.votes = [];
+        state.questions = [];
     },
     setVotes(state, votes) {
         state.votes = votes;
@@ -31,6 +34,9 @@ export const mutations = {
     },
     setCurrentMeeting(state, meeting_id) {
         state.current_meeting = meeting_id;
+    },
+    setQuestions(state, questions) {
+        state.questions.unshift(questions);
     }
 }
 

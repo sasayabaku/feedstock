@@ -3,7 +3,7 @@
         <nav class="menu">
             <span class="menu-item">
                 <nuxt-link :to="`/vote/${$store.state.current_meeting}`"><vs-button color="primary" :type="val_current" @click="current(0)">投稿</vs-button></nuxt-link>
-                <nuxt-link :to="`/insight/${$store.state.current_meeting}`"><vs-button color="primary" :type="val_current" @click="current(1)">Insight</vs-button></nuxt-link>
+                <!-- <nuxt-link :to="`/insight/${$store.state.current_meeting}`"><vs-button color="primary" :type="val_current" @click="current(1)">Insight</vs-button></nuxt-link> -->
                 <nuxt-link :to="`/questionnaire/${$store.state.current_meeting}`"><vs-button color="primary" :type="val_current" @click="current(2)">アンケート</vs-button></nuxt-link>
             </span>
         </nav>
