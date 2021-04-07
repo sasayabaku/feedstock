@@ -31,31 +31,27 @@ export default {
                         ticks: {
                             min: 0,
                             stepSize: 10,
+                            fontSize: 14
                         },
                         gridLines: {
                             display: true
-                        }
+                        },
                     }],
                     yAxes: [{
+                        ticks: {
+                            fontSize: 14
+                        },
                         gridLines: {
                             display: false
-                        }
+                        },
+
                     }]
                 }
-                // scales: {
-                //     y: {
-                //         min: 0,
-                //         max: 50,
-                //         ticks: {
-                //             stepSize: 10
-                //         }
-                //     },
-                // }
             }
         }
     },
     mounted () {
-        console.log(this.chart_data);
+        // console.log(this.chart_data);
         this.renderChart(this.data, this.options);
     }
 }

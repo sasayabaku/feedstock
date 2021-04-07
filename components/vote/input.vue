@@ -6,7 +6,7 @@
                 <div class="validation_error">{{ validation_result }}</div>
                 <v-textarea v-on:keydown.enter.ctrl.exact="send()" v-model="user" label="(Optional) User Name" auto-grow rows=1 counter=12 color="#0A256A"></v-textarea>
             </div>
-            <div class="vote_form"><vs-button color="primary" type="border" @click="send()">Send</vs-button></div>
+            <div class="vote_form"><vs-button color="primary" type="border" @click="send()">Send (Ctrl + Enter)</vs-button></div>
         </div>
     </div>
 </template>

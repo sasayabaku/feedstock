@@ -13,7 +13,7 @@
                     </ul>
                 </div>
                 <div v-if="result" class="result">
-                    <Chart :chart_data="chart_data" />
+                    <Chart :chart_data="active_chart_data" />
                 </div>
                 <vs-divider />
                 <div v-if="!result" class="actions">
@@ -45,13 +45,15 @@ export default {
         }
     },
     async mounted(){
-        console.log(this.question);
         for (const [key, value] of Object.entries(this.question.select)) {
             this.chart_data.keys.push(key);
             this.chart_data.text.push(value.text);
-            this.chart_data.votes_count.push(Object.keys(value.vote).length);
-            
-            this.validation_voted(Object.keys(value.vote));
+            if (value.vote === null || value.vote === undefined){
+                this.chart_data.votes_count.push(0);
+            } else {
+                this.chart_data.votes_count.push(Object.keys(value.vote).length);
+                this.validation_voted(Object.keys(value.vote));
+            }
         }
     },
 
@@ -98,6 +100,29 @@ export default {
             
         }
     },
+    computed: {
+        active_chart_data: {
+            get() {
+                var active_chart_data = {
+                    keys: [],
+                    text: [],
+                    votes_count: []            
+                };
+                for (const [key, value] of Object.entries(this.question.select)) {
+                    active_chart_data.keys.push(key);
+                    active_chart_data.text.push(value.text);
+                    if (value.vote === null || value.vote === undefined){
+                        active_chart_data.votes_count.push(0);
+                    } else {
+                        active_chart_data.votes_count.push(Object.keys(value.vote).length);
+                        this.validation_voted(Object.keys(value.vote));
+                    }
+                }
+                
+                return active_chart_data;
+            }
+        }
+    }
 }
 </script>
 
@@ -107,9 +132,15 @@ export default {
         padding-left: 0;
     }
 
+    .question-text {
+        padding-left: 1rem;
+        font-size: 1.4rem;
+    }
+
     .q-item {
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
     }
 

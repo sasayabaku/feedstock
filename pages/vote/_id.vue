@@ -34,6 +34,7 @@ export default {
 
   .container {
     width: 80%;
+    margin-top: 2rem;
 
       @media screen and (max-width: 700px) {
         width: 100%;

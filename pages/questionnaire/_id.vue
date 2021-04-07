@@ -1,5 +1,11 @@
 <template>
     <div class="container" id="all">
+        <vs-card>
+            <vs-alert class="warning_nortification" active="true" color="warning">
+                アンケート結果のリアルタイム更新がまだできてないので... <br/>
+                「投稿」ページへ遷移 or リロード で更新します...
+            </vs-alert>
+        </vs-card>
         <div class="q-card" v-for="question in localquestions" :key="question.Dep">
             <Question :question="question" />
         </div>
@@ -42,18 +48,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    width: 80%;
+    .container {
+        margin-top: 2rem;
+        width: 80%;
 
-      @media screen and (max-width: 700px) {
-        width: 100%;
-      }
-
+          @media screen and (max-width: 700px) {
+            width: 100%;
+        }
     }
 </style>
 
 <style lang="scss">
   .header {
     display: block;
+  }
+
+  .warning_nortification {
+      font-size: 1.1rem;
   }
 </style>

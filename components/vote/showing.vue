@@ -14,14 +14,19 @@
                 <div class="comment">
                     {{vote.comment}}
                 </div>
+                <vs-divider />
                 <div class="reply">
-                    <vs-divider />
                     <button v-if="reply_check(vote)" class="reply_tag" @click="handleOpen(vote.snapshot_id)">
                          {{ Object.keys(vote.replies).length }} Reply <vs-icon class="icons" icon="keyboard_return" />
                     </button>
-                    <button v-else class="empty_reply_tag" @click="handleOpen(vote.snapshot_id)">
+                    <button v-else class="reply_tag empty_reply_tag" @click="handleOpen(vote.snapshot_id)">
                         0 Reply <vs-icon class="icons" icon="keyboard_return" />
                     </button>
+                    
+
+                    <div class="lik_button">
+                        <LikesButton :vote="vote" />
+                    </div>
                 </div>
             </vs-card>
         </div>
@@ -36,10 +41,12 @@
 <script>
 import firebase_db from '@/plugins/firebase';
 
+import LikesButton from '@/components/vote/likes_button.vue';
 import replyForm from  '@/components/vote/reply/reply.vue';
 export default {
     components: {
-        replyForm
+        replyForm,
+        LikesButton
     },
     data () {
         return {
@@ -75,8 +82,7 @@ export default {
             })
         },
 
-        reply_check(vote) {
-            
+        reply_check(vote) {    
             if (vote.replies) {
                 return true
             } else {
@@ -84,12 +90,10 @@ export default {
             }
         },
 
-        async check() {
 
-            // (Args) Index value
-            console.log(Object.keys(this.localvotes[7].replies).length)
-
-        },
+        async check(vote) {
+            console.log(vote);
+        }, 
 
         handleOpen(idx_value) {
             this.reply = true;
@@ -98,7 +102,8 @@ export default {
 
         handleClose() {
             this.reply = false
-        }
+        },
+
     },
 
     computed: {
@@ -111,72 +116,51 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-    $card_padding: 1rem;
+<style lang="scss" scoped>
 
     #vote_showing {
         width: 100%;
         max-width: 800px;
+    }
 
-        .cards {
-            padding: 0 3rem;
+    .cards {
+        padding: 0 3rem;
+        @media screen and (min-width: 701px) { padding: 0; }
 
-            @media screen and (min-width: 701px) {
-                padding: 0;
-            }
+        .vote {
+            padding: 0.3rem 0 0 0;
+            min-width: 30rem;
 
-
-            .vote {
-                padding: 0.5rem 0;
-                min-width: 30rem;
-
-                .reply {
-                    .reply_tag {
-                        padding: 0 $card_padding;
-                        display: flex;
-                        align-items: center;
-                        color: blue;
-
-                        &:hover {
-                            color:rgb(0, 0, 110);
-                        }
-
-                        .icons {
-                            padding-left: 0.5rem;
-                        }
-                    }
-
-                    .empty_reply_tag {
-                        padding: 0 $card_padding;
-                        display: flex;
-                        align-items: center;
-                        color: rgb(59, 59, 59);
-
-                        &:hover {
-                            color:rgb(110, 110, 110);
-                        }
-
-                        .icons {
-                            padding-left: 0.5rem;
-                        }                    
-                    }
-                }
+            .vs-divider {
+                margin-bottom: 1rem;
             }
         }
     }
 
-    .prop-container {
-        width: 100%;
+    .reply {
         display: flex;
+        align-items: center;
 
-        .action {
-            margin-left: auto;
+        .reply_tag {
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            color: blue;
 
-            .like-button {
-                margin-right: 2rem;
-                height: 2rem;
-                font-size: 1rem;
+            &:hover {
+                color: #00006e;
+            }
+
+            .icons {
+                padding-left: 0.5rem;
+            }
+        }
+
+        .empty_reply_tag {
+            color: #3b3b3b;
+
+            &:hover {
+                color:#6e6e6e;
             }
         }
     }
@@ -184,10 +168,10 @@ export default {
     .user {
         display: flex;
         align-items: center;
-        padding: 0 $card_padding;
+        padding: 0 1rem;
 
         .text {
-            padding: 0 $card_padding;
+            padding: 0 1rem;
 
             .name {
                 font-size: 1.1rem;
@@ -198,6 +182,11 @@ export default {
                 color: #949393;
             }
         }
+    }    
+
+    .lik_button {
+        margin-left: 2rem;
+        font-size: 1.1rem;
     }
 
     .comment {
@@ -209,4 +198,14 @@ export default {
     .sidenav {
         position: fixed;
     }
+</style>
+
+<style lang="scss">
+
+    .vs-avatar--text {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }    
+
+
 </style>

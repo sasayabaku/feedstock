@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-html {
+/* html {
   font-family:
     'Source Sans Pro',
     -apple-system,
@@ -27,14 +27,14 @@ html {
     'Helvetica Neue',
     Arial,
     sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-}
+} */
 
 *,
 *::before,
@@ -75,6 +75,7 @@ html {
 .main {
   width: 100%;
   min-height: 100vh;
+  /* font-size: 12px; */
   background-color: rgb(240, 241, 243);
 }
 
@@ -94,4 +95,30 @@ html {
   padding: 5rem 0;
   min-height: 100vh;
 }
+</style>
+
+<style lang="scss" scoped>
+  .main {
+    width: 100%;
+    min-height: 100vh;
+    /* font-size: 12px; */
+    background-color: rgb(240, 241, 243);
+  }
+
+  .header {
+    width: 100%;
+    height: 6vh;
+    min-height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    margin: 0 3rem;
+    padding: 5rem 0;
+    min-height: 100vh;
+  }
 </style>

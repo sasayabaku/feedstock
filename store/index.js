@@ -4,7 +4,6 @@ export const state = () => ({
     questions: [],
     current_reply: null,
     current_meeting: null,
-    userID: "a102a34"
 })
 
 export const mutations = {
@@ -37,6 +36,9 @@ export const mutations = {
     },
     setQuestions(state, questions) {
         state.questions.unshift(questions);
+    },
+    setUserID(state, userID) {
+        state.userID = userID;
     }
 }
 
