@@ -95,3 +95,6 @@ sw.*
 
 # build file
 public/
+
+# development temporary file
+tmp/

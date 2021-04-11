@@ -76,7 +76,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   /* font-size: 12px; */
-  background-color: rgb(240, 241, 243);
+  background-color: #f0f1f3;
 }
 
 .header {

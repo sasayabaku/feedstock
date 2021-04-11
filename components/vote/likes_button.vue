@@ -1,13 +1,13 @@
 <template>
     <div id="likes_button">
         <button v-if="likes_check(vote) === 0" class="favorite_button" @click="do_likes(vote.snapshot_id)">
-            <vs-chip icon="favorite"><vs-icon icon="favorite" size="small" color="#ff4757"/><b>{{Object.keys(vote.likes).length}}</b></vs-chip>
+            <vs-chip icon="favorite"><vs-icon icon="favorite_border" size="small" color="#ff4757"/><b>{{Object.keys(vote.likes).length}}</b></vs-chip>
         </button>
         <button v-else-if="likes_check(vote) === 1" class="already_favorite_button" @click="remove_likes(vote.snapshot_id)">
-            <vs-chip color="danger" icon="favorite"><vs-icon icon="favorite" size="small" color="white"/><b>{{Object.keys(vote.likes).length}}</b></vs-chip>
+            <vs-chip icon="favorite"><vs-icon icon="favorite" size="small" color="#ff4757"/><b>{{Object.keys(vote.likes).length}}</b></vs-chip>
         </button>
         <button v-else class="favorite_button" @click="do_likes(vote.snapshot_id)">
-            <vs-chip icon="favorite"><vs-icon icon="favorite" size="small" color="#ff4757"/><b>0</b></vs-chip>
+            <vs-chip icon="favorite"><vs-icon icon="favorite_border" size="small" color="#ff4757"/><b>0</b></vs-chip>
         </button>
     </div>
 </template>

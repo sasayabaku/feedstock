@@ -4,6 +4,10 @@ export default {
 
   ssr: false,
 
+  router: {
+    base: '/feedstock/'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'questionnaire',
@@ -17,7 +21,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    base: {
+      href: 'router.base'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
