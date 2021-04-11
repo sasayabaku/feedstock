@@ -158,13 +158,20 @@ export default {
 
         height: 100%;
         display: block;
+        overflow: hidden;
 
         .votes {
             margin-top: 2rem;
             padding: 2rem 0;
-            width: 40vw;
+            width: 100%;
             height: 65vh;
-            overflow: scroll;
+            overflow-y: scroll;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             .comment {
                 margin-top: 1rem;
