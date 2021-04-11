@@ -31,6 +31,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 $ docker-compose up -d
 ```
 
+> Access http://localhost
+
 ## Deploy with Firebase
 
 In `./plugins/firebase.js`  
@@ -47,4 +49,8 @@ const firebaseConfig = {
 };
 ```
 
-> Access http://localhost
+Deploy to Firebase
+
+```bash
+$ firebase deploy
+```
