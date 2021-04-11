@@ -34,6 +34,7 @@ export default {
 
   .container {
     width: 80%;
+    margin-top: 2rem;
 
       @media screen and (max-width: 700px) {
         width: 100%;
@@ -42,7 +43,6 @@ export default {
     }
 
   .vote_form {
-    margin: 5rem 0;
     display: flex;
     justify-content: center;
   }

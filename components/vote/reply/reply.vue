@@ -9,7 +9,7 @@
         >
         <div v-if="reply" class="sidenav">
             <div class="close-button">
-                <vs-button @click="handleClose" color="gray" size="small" icon="close" > close</vs-button>
+                <vs-button class="c-text" @click="handleClose" color="gray" size="small" icon="close" > close</vs-button>
             </div>
 
             <div class="votes">
@@ -97,8 +97,15 @@ export default {
                 // let Ref = firebase_db.database().ref("votes/-MWzzbBdZeadrHYPZzCH/replies")
                 let Ref = firebase_db.database().ref("events/"+ this.$store.state.current_meeting + "/votes/" + this.$store.state.current_reply + "/replies");
 
+                var user = null;
+                if (this.user === null || this.user === "") {
+                    user = "Anonymous"
+                } else {
+                    user = this.user;
+                }
+
                 Ref.push({
-                    username: this.user,
+                    username: user,
                     comment: this.comment,
                     createAt: firebase.database.ServerValue.TIMESTAMP,
                     sortTime: sortTime
@@ -150,6 +157,7 @@ export default {
     .sidenav {
 
         height: 100%;
+        display: block;
 
         .votes {
             margin-top: 2rem;
@@ -161,7 +169,7 @@ export default {
             .comment {
                 margin-top: 1rem;
                 margin-left: 2rem;
-                font-size: 0.9rem;
+                font-size: 1.0rem;
             }
 
             .replies {
@@ -171,14 +179,41 @@ export default {
             }
         }
 
+        .user {
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+
+            .text {
+                padding: 0 1rem;
+
+                .name {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                .date {
+                    color: #949393;
+                }
+            }
+        }            
+
         .close-button {
             margin: 1rem;
+            width: 100%;
+            height: 2rem;
+
+            .c-text {
+                font-size: 1rem;
+            }
         }
 
         .reply_form {
             position: fixed;
             background-color: white;
-            width: 20vw;
+            width: 30vw;
+            max-width: 450px;
+            min-width: 350px;
             margin: 0 1rem;
             bottom: 1rem;
         }
@@ -193,7 +228,7 @@ export default {
 <style lang="scss">
     .vs-sidebar {
         width: 40vw;
-        max-width: 500px;
-        min-width: 240px;
+        // max-width: 500px;
+        min-width: 480px;
     }
 </style>
