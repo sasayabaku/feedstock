@@ -31,4 +31,20 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 $ docker-compose up -d
 ```
 
+## Deploy with Firebase
+
+In `./plugins/firebase.js`  
+Set your Firebase Configuration.
+
+```js
+const firebaseConfig = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+};
+```
+
 > Access http://localhost
