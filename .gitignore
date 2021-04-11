@@ -91,6 +91,7 @@ sw.*
 
 # for Firebase
 .firebaserc
+.firebase/
 
 
 # build file
