@@ -1,5 +1,10 @@
 # feedstock
-Interactive meeting feedback application
+
+![](./docs/landing.png)
+
+Interactive meeting feedback application 
+
+
 
 ## Build Setup
 
@@ -19,3 +24,11 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Deploy with local Docker Container (Nginx)
+
+```bash
+$ docker-compose up -d
+```
+
+> Access http://localhost

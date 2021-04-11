@@ -98,3 +98,4 @@ public/
 
 # development temporary file
 tmp/
+plugins/firebase.js
